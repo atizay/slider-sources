@@ -1,13 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <title>Доска | Проект 4</title>
-</head>
-<body>
-<div class="container" id="board"></div>
-<script src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Слайдер | Проект 3</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div style="background: linear-gradient(124.36deg, #E99170 0%, #753138 98.2%);">
+          <h1>Up and Running</h1>
+          <h3>[Season 1, Episode 4]</h3>
+          <br>
+          <p>Pacific Rim: The Black</p>
+        </div>
+        <div style="background: linear-gradient(124.36deg, #F8CB4C 0%, #65351B 98.2%);">
+          <h1>From the Shadows</h1>
+          <h3>[Season 1, Episode 1]</h3>
+          <br>
+          <p>Pacific Rim: The Black</p>
+        </div>
+        <div style="background: linear-gradient(124.36deg, #54395F 0%, #09297D 98.2%);">
+          <h1>Escaping Bogan</h1>
+          <h3>[Season 1, Episode 5]</h3>
+          <br>
+          <p>Pacific Rim: The Black</p>
+        </div>
+        <div style="background: linear-gradient(124.36deg, #76FAFD 0%, #126B6F 98.2%);">
+          <h1>Showdown</h1>
+          <h3>[Season 1, Episode 7]</h3>
+          <br>
+          <p>Pacific Rim: The Black</p>
+        </div>
+      </div>
+      <div class="main-slide">
+        <div
+          style="
+            background-image: url('https://zetflix.online/uploads/posts/2021-03/1614852543_s1_ep7-pacific-rim-the-black-showdown_mp4_snapshot_19_32_879.jpg');
+          "
+        ></div>
+        <div
+          style="
+            background-image: url('https://zetflix.online/uploads/posts/2021-03/1614852523_s1_ep5-pacific-rim-the-black-escaping-bogan_mp4_snapshot_10_53_902.jpg');
+          "
+        ></div>
+        <div
+          style="
+            background-image: url('https://zetflix.online/uploads/posts/2021-03/1614849154_s1_ep1-pacific-rim-the-black-from-the-shadows_mp4_snapshot_02_01_871.jpg');
+          "
+        ></div>
+        <div
+          style="
+            background-image: url('https://zetflix.online/uploads/posts/2021-03/1614852460_s1_ep4-pacific-rim-the-black-up-and-running_mp4_snapshot_10_49_022.jpg');
+          "
+        ></div>
+      </div>
+      <div class="controls">
+        <button class="down-button">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+        <button class="up-button">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>

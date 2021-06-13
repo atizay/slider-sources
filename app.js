@@ -1,37 +1,60 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-  const board = document.querySelector('#board')
-  const colors = ['#FBC02D', '#4CAF50', '#448AFF', '#9C27B0', '#FF9800']
+  const downBtn = document.querySelector('.down-button'),
+        upBtn = document.querySelector('.up-button'),
+        sidebar = document.querySelector('.sidebar'),
+        mainslide = document.querySelector('.main-slide'),
+        container = document.querySelector('.container')
 
-  const SQUARES_NUMBER = 484
+  const slidesCount = mainslide.querySelectorAll('div').length
 
-  for (let i = 0; i < SQUARES_NUMBER; i++) {
-    const square = document.createElement('div')
-    square.classList.add('square')
+  let activeSlideIndex = 0
+  
+  sidebar.style.top = `-${(slidesCount - 1) * 100}vh`
 
-    square.addEventListener('mouseover', () => setColor(square))
+  upBtn.addEventListener('click', () => {
+    changeSlide('up')
+  })
 
-    square.addEventListener('mouseleave', () => removeColor(square))
+  downBtn.addEventListener('click', () => {
+    changeSlide('down')
+  })
 
-    board.append(square)
+  function changeSlide(direction) {
+    if (direction === 'up') {
+      activeSlideIndex++
+
+      if (activeSlideIndex === slidesCount) {
+        activeSlideIndex = 0
+      }      
+    } else if (direction === 'down') {
+      activeSlideIndex--
+
+      if (activeSlideIndex < 0) {
+        activeSlideIndex = slidesCount - 1
+      }
+    }
+
+    const height = container.clientHeight
+
+    mainslide.style.transform = `translateY(-${activeSlideIndex * height}px)`
+    sidebar.style.transform = `translateY(${activeSlideIndex * height}px)`
   }
 
-  function setColor(elem) {
-    const color = getRandomColor()
-    elem.style.backgroundColor = color
-    elem.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`
-  }
 
-  function removeColor(elem) {
-    elem.style.backgroundColor = '#1d1d1d'
-    elem.style.boxShadow = `0 0 2px #000`
-  }
+  document.onkeydown = checkKey;
 
-  function getRandomColor() {
-    const index = Math.floor(Math.random() * colors.length)
-    return colors[index]
-  }
+  function checkKey(e) {
 
+    e = e || window.event;
+
+    if (e.keyCode == '38') {
+      changeSlide('up')
+    }
+    else if (e.keyCode == '40') {
+      changeSlide('down')
+    }
+  }
 
 
 })
